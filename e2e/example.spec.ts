@@ -14,7 +14,7 @@ test('has title', async ({ page, context }) => {
   // Wait until the new page has loaded
   await newPage.waitForLoadState();
   await expect(newPage).toHaveURL(/.*material-ui/);
-  const numberLocator = newPage.getByRole('link', { name: '+ 3,039 contributors' })
+  const numberLocator = newPage.getByRole('link', { name: /\+\s[\d,]+\scontributors/ })
   await expect(numberLocator).toBeVisible();
   await numberLocator.click();
   await newPage.waitForLoadState();
